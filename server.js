@@ -33,9 +33,7 @@ app.use( function( req, res, next ){
 //  disk: filename: id, content: json
 
 app.get( '/', function( req, res ){
-    //TODO: send short manual
-    res.header( 'Content-Type', 'text/html' );
-    res.send('OK');
+   res.sendFile('static/index.html', {root: __dirname});
 } );
 
 app.get( '/api/v1/json', function( req, res ){
