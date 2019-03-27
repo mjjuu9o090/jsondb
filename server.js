@@ -14,8 +14,12 @@ app.use( require( 'body-parser' ).json() );
 
 
 app.use( function( req, res, next ){
-    //TODO: mlogging middleware
-//    mlog( 'logging middleware reached' );
+    logmsg = req.ip;
+    logmsg += ' did ' + req.method;
+    logmsg += ' on ' + req.url;
+    mlog( logmsg );
+    if( req.method !== 'GET' )
+	mlog( '  payload: ' + JSON.stringify( req.body ));
     next();
 } );
 
