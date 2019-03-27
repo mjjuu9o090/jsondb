@@ -1,10 +1,10 @@
 const crypto = require( 'crypto' );
 
-//const secret = crypto.randomBytes(16).toString('hex');
-const secret = '1441a7909c087dbbe7ce59881b9df8b9';
+const secret = crypto.randomBytes(16).toString('hex');
+//const secret = '1441a7909c087dbbe7ce59881b9df8b9';
 
-const cachesize = 10;
-const limit = 5;
+const cachesize = 50;
+const limit = 10;
 
 
 var mlog = function ( msg, callback ){
