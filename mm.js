@@ -21,13 +21,15 @@ var search = function( cache, id, callback ){
     for( const [cid, data] of cache.entries() ){
         if( id == cid ){
             callback( data );
-        }
+            return
+	}
     }
     mlog( 'fs search start' );
     fs.readdir( path, function(err, files ){
         if( err ){
             callback( {} );
         } else {
+	    found = false
             files.forEach( function( file, index ){
                 if( file === id ){
                     found = true;
